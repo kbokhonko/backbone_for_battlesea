@@ -16,5 +16,15 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
-//= require backbone/battlesea
-//= require_tree .
+//= require_tree ./backbone
+
+window.BattleSea = {
+  App: {
+    Views: {},
+    Collections: {},
+    Models: {},
+  },
+  Views: {},
+  Collections: {},
+  Models: {},
+};
