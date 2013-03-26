@@ -22,6 +22,7 @@ $(function(){
             });
           };
         };
+
       console.log('View initialize');
       console.log(this.collection);
       this.collection.on('reset', this.reset, this);
