@@ -24,8 +24,9 @@ $(function(){
         };
 
       console.log('View initialize');
-      console.log(this.collection);
+      //console.log(this.collection);
       this.collection.on('reset', this.reset, this);
+      this.on('change', this.showModel, this);
     },
 
     reset: function() {
@@ -49,10 +50,16 @@ $(function(){
     },
 
     showModel: function() {
-      console.log($('.x_co').val());
-      console.log($('.y_co').val());
-      this.collection.where({x_co: $('.x_co').val(), y_co: $('.y_co').val(),});
-      console.log(this.collection.where({x_co: $('.x_co').val()}))
+
+      var modelfield = this.collection.where({x_co: parseInt($('.x_co').val()), y_co: parseInt($('.y_co').val())})[0];
+      //console.log(this);
+      if (modelfield.get('status') == 'empty'){
+        modelfield.set('status', 'non_empty');
+      }
+      else{
+        modelfield.set('status', 'empty');
+      }
+
     }
   })
 });

@@ -8,6 +8,19 @@ $(function(){
       "click": "changeStatus"
     },
 
+     initialize: function() {
+      this.model.on('change', this.changeStatusFromCo, this);
+    },
+
+    changeStatusFromCo: function() {
+      if (this.model.get('status') == 'empty'){
+        $(this.el).removeClass('red');
+      }
+    else {
+        $(this.el).addClass('red');
+      }
+    },
+
     render: function() {
       $(this.$el).html('');
       return this;
@@ -23,6 +36,5 @@ $(function(){
         this.model.set('status', 'empty');
       }
     }
-
   });
 });
